@@ -12,16 +12,15 @@ export class MovieSearchComponent implements OnInit {
   movieTitle;
   details = {};
   movies = [
-    {title:'Blade Runner 2049'},
-    {title:'Blade Runner 2049'},
-    {title:'Blade Runner 2049'},
-    {title:'Blade Runner 2049'}
   ]
   constructor(private movieServiceClient: MovieServiceClient) { }
 
   searchForMovie(movieTitle){
     this.movieServiceClient.findMovieByTitle(movieTitle)
     .then(res => this.movies = res.Search); 
+    if(this.movies.length === 0){
+      alert("nenhum filme encontrado com esse título");
+    }
   }
 
   findMovieDetails(movie){

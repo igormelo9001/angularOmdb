@@ -1,0 +1,14 @@
+<p>({{movies.length}})</p>
+
+<input [(ngModel)]="movieTitle" placeholder="Titulo"/>
+<button (click)="searchForMovie(movieTitle)">Procurar</button>
+
+<ul>
+    <li (click)="findMovieDetails(movie)" *ngFor = "let movie of movies">
+        {{movie.Title}}
+    </li>
+</ul>
+
+<h3>{{details.Title}}</h3>
+
+<p>{{details.Plot}}</p>
